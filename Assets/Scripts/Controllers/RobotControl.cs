@@ -22,7 +22,7 @@ public class RobotControl : MonoBehaviour
         Vector3 movement = new Vector3(inputX, inputY, 0);
         movement *= Time.deltaTime / vel;
         transform.Translate(movement);
-       
-        
+
+        gameObject.GetComponent<Animator>().SetFloat("Direction", inputY);
     }
 }
