@@ -36,5 +36,13 @@ public class MouseControl : MonoBehaviour
     {
         clickedItem.GetComponent<BoxCollider2D>().enabled = true;
         isHolding = false;
+        float delay = 0.1f;
+        Invoke("ResetItem", delay);
+    }
+
+    public void ResetItem()
+    {
+        clickedItem.GetComponent<BoxCollider2D>().isTrigger = true;
+        clickedItem.GetComponent<ItemControl>().resetPosition();
     }
 }

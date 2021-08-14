@@ -26,17 +26,19 @@ public class PlayerControl : MonoBehaviour
         movement *= Time.deltaTime / vel;
         transform.Translate(movement);
         ChangeSideCloth(inputY);
+        lastY = inputY;
         gameObject.GetComponent<Animator>().SetFloat("Direction", inputY);
     }
 
     void ChangeSideCloth(float y)
     {
-        if(y > 0)
+        if (y > 0)
         {
+            
            upperG.GetComponent<SpriteRenderer>().sprite = upperSide1;
            downG.GetComponent<SpriteRenderer>().sprite = downSide1;
         }
-        else if(y<0){
+        else if(y <0 ){
 
         }
         upperG.GetComponent<SpriteRenderer>().sprite = upperSide2;

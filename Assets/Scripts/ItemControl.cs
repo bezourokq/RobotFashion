@@ -6,8 +6,7 @@ public class ItemControl : MonoBehaviour
 {
     public MouseControl control;
     public Item item;
-    public SpriteRenderer icon;
-    public int id;
+    public Sprite icon;
     Vector3 position;
     Quaternion rotation;
     // Start is called before the first frame update
@@ -28,13 +27,9 @@ public class ItemControl : MonoBehaviour
         return item;
     }
 
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
     public void setIcon(Sprite icon)
     {
+        this.icon = icon;
         gameObject.GetComponent<SpriteRenderer>().sprite = icon;
     }
 
@@ -46,7 +41,7 @@ public class ItemControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnMouseDrag()
@@ -57,5 +52,19 @@ public class ItemControl : MonoBehaviour
     void OnMouseUp()
     {
         control.DropItem();
+    }
+
+    private void OnCollisionEnter2D(Collision2D Collider)
+    {
+        GameObject temp = Collider.gameObject;
+        if (temp.name.Contains("empyt"))
+        {
+            Debug.Log("entrei");
+            InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
+            inventory.receiveItem(item, item.GetCloth().getFront(), item.GetCloth().getBack(), icon, item.GetCloth().getModel());
+            inventory.updateInventory();
+
+
+        }
     }
 }
