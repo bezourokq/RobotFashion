@@ -53,19 +53,19 @@ public class PlayerControl : MonoBehaviour
             temp.GetComponent<ItemControl>().resetPosition();
             temp.GetComponent<BoxCollider2D>().isTrigger = true;
             Item item = temp.GetComponent<ItemControl>().getItem();
-            if (item.GetCloth().getModel() == 1 || item.GetCloth().getModel() == 2)
+            if (item.getCloth().getModel() == 1 || item.getCloth().getModel() == 2)
             {
                 //upperG.GetComponent<SpriteRenderer>().sprite = item.GetCloth().getFront();
-                upperSide1 = item.GetCloth().getFront();
-                upperSide2 = item.GetCloth().getBack();
+                upperSide1 = item.getCloth().getFront();
+                upperSide2 = item.getCloth().getBack();
                 
             }
             else
             {
 
                 //downG.GetComponent<SpriteRenderer>().sprite = item.GetCloth().getFront();
-                downSide1 = item.GetCloth().getFront();
-                downSide2 = item.GetCloth().getBack();
+                downSide1 = item.getCloth().getFront();
+                downSide2 = item.getCloth().getBack();
             }
             ChangeSideCloth(lastY);
         }       

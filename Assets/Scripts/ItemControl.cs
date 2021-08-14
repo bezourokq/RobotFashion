@@ -6,7 +6,7 @@ public class ItemControl : MonoBehaviour
 {
     public MouseControl control;
     public Item item;
-    public Sprite icon;
+    public int id;
     Vector3 position;
     Quaternion rotation;
     // Start is called before the first frame update
@@ -27,9 +27,13 @@ public class ItemControl : MonoBehaviour
         return item;
     }
 
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     public void setIcon(Sprite icon)
     {
-        this.icon = icon;
         gameObject.GetComponent<SpriteRenderer>().sprite = icon;
     }
 
