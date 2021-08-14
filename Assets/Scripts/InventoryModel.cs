@@ -8,9 +8,13 @@ public class InventoryModel : MonoBehaviour
     public List<GameObject> ItemGameObject;
     public ItemFactory iFactory;
     public int size;
+    int totalItem;
+    public string name;
+    
 
     void Start()
     {
+        totalItem = 0;
         int x;
         iFactory.init();
         for (x = 0; x < size;x++)
@@ -27,31 +31,33 @@ public class InventoryModel : MonoBehaviour
         int x = 0;
         foreach (Item item in iFactory.GetItemList())
         {
-            ItemGameObject[x].name = "bought";
+            ItemGameObject[x].name = name;
+            ItemGameObject[x].GetComponent<ItemControl>().setItem(item);
+            ItemGameObject[x].GetComponent<ItemControl>().setId(x);
             ItemGameObject[x].gameObject.GetComponent<ItemControl>().setId(x);
             ItemGameObject[x].gameObject.GetComponent<ItemControl>().setIcon(item.getIcon());
             x++;
         }
-
-
-
     }
 
-    public void receiveItem(ItemControl itemControl)
+    public void receiveItem(Item item)
     {
-
-
+        totalItem = totalItem + 1;
+        if(totalItem < iFactory.getMax())
+        {
+            Debug.Log(item);
+            iFactory.AddToList(item);
+            makeInventory();
+        }
+        else
+        {
+            Debug.Log("Inventorio Cheio");
+        }
     }
 
-    public void updateInventory()
-    {
-        
-    }
 
-    public void removeFromInventory(ItemControl itemControl)
+    public void removeFromInventory(Item itemControl)
     {
-
-      
 
     }
 

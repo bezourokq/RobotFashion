@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &173562630
 Rigidbody2D:
   serializedVersion: 4
@@ -499,7 +499,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &173562631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -627,7 +627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df49b3bd4ec3597499d1be9ce796f1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpritList: []
   ItemGameObject:
   - {fileID: 300579815}
   - {fileID: 1320673453}
@@ -635,8 +634,9 @@ MonoBehaviour:
   - {fileID: 1187669329}
   - {fileID: 1867121549}
   - {fileID: 667963121}
-  IconList: []
-  types: 
+  iFactory: {fileID: 274000199}
+  size: 0
+  name: bought
 --- !u!1 &241184432
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &241184436
 Rigidbody2D:
   serializedVersion: 4
@@ -756,7 +756,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &241184437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -815,6 +815,7 @@ MonoBehaviour:
   SpritList: []
   IconList: []
   types: 
+  max: 7
 --- !u!4 &274000200
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,7 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!61 &300579819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1057,7 +1058,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &389972931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &667963124
 Rigidbody2D:
   serializedVersion: 4
@@ -1648,7 +1649,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &667963125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1907,7 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &785770489
 Rigidbody2D:
   serializedVersion: 4
@@ -1928,7 +1929,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &785770490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2395,6 +2396,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
   - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
   types: 01000000010000000300000003000000
+  max: 8
 --- !u!4 &1096964708
 Transform:
   m_ObjectHideFlags: 0
@@ -2670,7 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1187669332
 Rigidbody2D:
   serializedVersion: 4
@@ -2691,7 +2693,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1187669333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2867,7 +2869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1297132656
 Rigidbody2D:
   serializedVersion: 4
@@ -2888,7 +2890,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1297132657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3019,27 +3021,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df49b3bd4ec3597499d1be9ce796f1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpritList:
-  - {fileID: 21300000, guid: 78054d9297814c04eb6453ca543ef05a, type: 3}
-  - {fileID: 21300000, guid: d9c9f7abb04b4014e9f7c95f495af762, type: 3}
-  - {fileID: 21300000, guid: 8cdb0cd64d5bcdc4983d9ec52c8165cf, type: 3}
-  - {fileID: 21300000, guid: 041af06b12f19af4a93f60b589fe5247, type: 3}
-  - {fileID: 21300000, guid: 9800f0878b4f1af4e8489cc3a8546e77, type: 3}
-  - {fileID: 21300000, guid: ef3eb9c519a2be54eb5f2fd5951f0a7c, type: 3}
-  - {fileID: 21300000, guid: e10fd9a60488bbd4abb019a5b1800d82, type: 3}
-  - {fileID: 21300000, guid: 21697089bc264a645a08eb7a8dfa7b20, type: 3}
   ItemGameObject:
   - {fileID: 1963432699}
   - {fileID: 1871627252}
   - {fileID: 1297132652}
   - {fileID: 173562626}
   - {fileID: 785770485}
-  IconList:
-  - {fileID: 21300000, guid: c820c62898e163f439f3bc78d2388928, type: 3}
-  - {fileID: 21300000, guid: c820c62898e163f439f3bc78d2388928, type: 3}
-  - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
-  - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
-  types: 01000000010000000300000003000000
+  - {fileID: 241184432}
+  - {fileID: 2016540522}
+  - {fileID: 1424248292}
+  iFactory: {fileID: 1096964707}
+  size: 4
+  name: Full
 --- !u!1 &1320673453
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,7 +3080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1320673456
 Rigidbody2D:
   serializedVersion: 4
@@ -3108,7 +3101,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1320673457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3433,7 +3426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1424248296
 Rigidbody2D:
   serializedVersion: 4
@@ -3454,7 +3447,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1424248297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3942,7 +3935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1867121552
 Rigidbody2D:
   serializedVersion: 4
@@ -3963,7 +3956,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1867121553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4139,7 +4132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1871627256
 Rigidbody2D:
   serializedVersion: 4
@@ -4160,7 +4153,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1871627257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4387,7 +4380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &1963432703
 Rigidbody2D:
   serializedVersion: 4
@@ -4408,7 +4401,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1963432704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4616,7 +4609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &2016540526
 Rigidbody2D:
   serializedVersion: 4
@@ -4637,7 +4630,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &2016540527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4711,7 +4704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 989435940}
-  icon: {fileID: 0}
+  id: 0
 --- !u!50 &2020184462
 Rigidbody2D:
   serializedVersion: 4
@@ -4732,7 +4725,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &2020184463
 BoxCollider2D:
   m_ObjectHideFlags: 0

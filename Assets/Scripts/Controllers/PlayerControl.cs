@@ -48,8 +48,9 @@ public class PlayerControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
-        if (temp.name.Contains("Brought"))
+        if (temp.name.Contains("bought"))
         {
+            
             temp.GetComponent<ItemControl>().resetPosition();
             temp.GetComponent<BoxCollider2D>().isTrigger = true;
             Item item = temp.GetComponent<ItemControl>().getItem();
