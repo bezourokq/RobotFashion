@@ -64,14 +64,13 @@ public class ItemControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
-
+        Debug.Log(temp.name);
         if (temp.name.Contains("emp") && gameObject.name.Contains("Full"))
         {
             InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
-            Debug.Log(gameObject.GetComponent<ItemControl>().getItem());
             inventory.receiveItem(gameObject.GetComponent<ItemControl>().getItem());
         }
-        else if(temp.name == "Delete" && gameObject.name.Contains("Brought"))
+        else if(temp.name == "Delete" && gameObject.name.Contains("bought"))
         {
             InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
             inventory.removeFromInventory(gameObject.GetComponent<ItemControl>().getItem());

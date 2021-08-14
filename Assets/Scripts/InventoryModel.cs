@@ -6,6 +6,7 @@ public class InventoryModel : MonoBehaviour
 {
     
     public List<GameObject> ItemGameObject;
+    List<GameObject> CopyItemGameObject;
     public ItemFactory iFactory;
     public int size;
     int totalItem;
@@ -14,6 +15,7 @@ public class InventoryModel : MonoBehaviour
 
     void Start()
     {
+        CopyItemGameObject = ItemGameObject;
         totalItem = 0;
         int x;
         iFactory.init();
@@ -29,8 +31,10 @@ public class InventoryModel : MonoBehaviour
     void makeInventory()
     {
         int x = 0;
+        cleanInventory();
         foreach (Item item in iFactory.GetItemList())
         {
+            Debug.Log("Adicionando " + x);
             ItemGameObject[x].name = name;
             ItemGameObject[x].GetComponent<ItemControl>().setItem(item);
             ItemGameObject[x].GetComponent<ItemControl>().setId(x);
@@ -45,7 +49,6 @@ public class InventoryModel : MonoBehaviour
         totalItem = totalItem + 1;
         if(totalItem < iFactory.getMax())
         {
-            Debug.Log(item);
             iFactory.AddToList(item);
             makeInventory();
         }
@@ -55,10 +58,19 @@ public class InventoryModel : MonoBehaviour
         }
     }
 
-
-    public void removeFromInventory(Item itemControl)
+    public void cleanInventory()
     {
+        ItemGameObject = CopyItemGameObject;
+    }
 
+
+    public void removeFromInventory(Item item)
+    {
+        Debug.Log("WTF");
+        iFactory.RemoveFromList(item);
+        ItemGameObject[totalItem - 1].name = "empty";
+        makeInventory();
+        totalItem = totalItem - 1;
     }
 
 }

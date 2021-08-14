@@ -17,17 +17,23 @@ public class ItemFactory : MonoBehaviour
     }
     public void AddToList(Item item)
     {
+        x++;
+        y = y + 2;
         ItemList.Add(item);
+    }
+
+    public void RemoveFromList(Item item)
+    {
+        ItemList.Remove(item);
+        x--;
+        y = y - 2;
     }
 
     public void MakeItem()
     {
         Cloth cloth = new Cloth(SpritList[y], SpritList[y + 1], types[x], 1, 1);
         Item item = new Item(cloth, IconList[x]);
-        x++;
-        y = y + 2;
-
-        ItemList.Add(item);
+        AddToList(item);
     }
 
     public int getMax()

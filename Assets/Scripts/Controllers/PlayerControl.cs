@@ -10,15 +10,26 @@ public class PlayerControl : MonoBehaviour
     float vel = 1f;
     public GameObject upperG, downG;
     public Sprite upperSide1, upperSide2, downSide1, downSide2;
+    public GameObject inventory;
+    bool showInventory;
     // Start is called before the first frame update
     void Start()
     {
+        showInventory = false;
+        inventory.SetActive(false);
         lastY = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown("space"))
+        {
+            showInventory = !showInventory;
+            inventory.SetActive(showInventory);
+        }
+
         //basic movement for the player
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
