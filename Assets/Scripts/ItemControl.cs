@@ -60,8 +60,8 @@ public class ItemControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
-        
-        if (temp.name.Contains("emp"))
+
+        if (temp.name.Contains("emp") && gameObject.name.Contains("Full"))
         {
             temp.GetComponent<BoxCollider2D>().isTrigger = true;
             Debug.Log("entrei");
@@ -72,7 +72,7 @@ public class ItemControl : MonoBehaviour
             temp.GetComponent<ItemControl>().resetPosition();
 
 
-        }else if(temp.name == "Delete")
+        }else if(temp.name == "Delete" && gameObject.name.Contains("Brought"))
         {
             Debug.Log("Delete");
             gameObject.name = "empyt";

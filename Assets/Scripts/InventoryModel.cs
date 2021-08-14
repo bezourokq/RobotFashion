@@ -13,10 +13,10 @@ public class InventoryModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        makeInventory();
+        makeInventory("Full");
     }
 
-    void makeInventory()
+    void makeInventory(string name)
     {
         ItemList = new List<Item>();
         int y = 0;
@@ -26,7 +26,7 @@ public class InventoryModel : MonoBehaviour
         Debug.Log(SpritList.Count);
         for (int x = 0; x < IconList.Count; x++)
         {
-            ItemGameObject[x].name = "Full" + x;
+            ItemGameObject[x].name = name + x;
             ItemControl itemcontrol = ItemGameObject[x].GetComponent<ItemControl>();
             itemcontrol.setIcon(IconList[x]);
 
@@ -51,7 +51,7 @@ public class InventoryModel : MonoBehaviour
 
     public void updateInventory()
     {
-        makeInventory();
+        makeInventory("Brought");
     }
 
     public void removeFromInventory(Item item, Sprite Front, Sprite Back, Sprite icon, int model)
