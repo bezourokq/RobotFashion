@@ -5,10 +5,11 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public MouseControl control;
+    Cloath clothItem;
     // Start is called before the first frame update
     void Start()
     {
-        control = GameObject.Find("control").GetComponent<MouseControl>();
+        
     }
 
     // Update is called once per frame
@@ -25,5 +26,10 @@ public class Item : MonoBehaviour
     void OnMouseUp()
     {
         control.DropItem();
+    }
+
+    public Cloath GetCloath()
+    {
+        return clothItem;
     }
 }

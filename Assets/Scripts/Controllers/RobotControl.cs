@@ -10,7 +10,7 @@ public class RobotControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,4 +25,12 @@ public class RobotControl : MonoBehaviour
 
         gameObject.GetComponent<Animator>().SetFloat("Direction", inputY);
     }
+
+
+    private void OnCollisionEnter2D(Collision2D Collider)
+    {
+        Collider.gameObject.SetActive(false);
+        Debug.Log("WTFFFFF");
+    }
+
 }

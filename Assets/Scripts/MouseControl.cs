@@ -5,36 +5,37 @@ using UnityEngine;
 public class MouseControl : MonoBehaviour
 {
     public GameObject clickedItem;
+    public bool isHolding;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isHolding = false;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isHolding)
         {
-            Debug.Log("Held");
+            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            position.z = 0;
+            clickedItem.transform.position = position;
         }
-        else
-        {
-            Debug.Log("Not held");
-        }
+        
+        
     }
 
     public void HoldItem(GameObject clickedOn)
     {
-       
-
         clickedItem = clickedOn;
-        //clickedItem.transform.position = Input.mousePosition;
-        clickedItem.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        clickedItem.GetComponent<BoxCollider2D>().enabled = false;
         clickedItem.name = "cliked";
+        isHolding = true;
     }
 
     public void DropItem()
     {
-        //clickedItem.name = "uncliked";
+        clickedItem.GetComponent<BoxCollider2D>().enabled = true;
+        isHolding = false;
+        clickedItem.name = "uncliked";
     }
 }
