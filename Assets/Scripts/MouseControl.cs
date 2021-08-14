@@ -27,6 +27,7 @@ public class MouseControl : MonoBehaviour
     public void HoldItem(GameObject clickedOn)
     {
         clickedItem = clickedOn;
+        clickedItem.GetComponent<BoxCollider2D>().isTrigger = false;
         clickedItem.GetComponent<BoxCollider2D>().enabled = false;
         clickedItem.name = "cliked";
         isHolding = true;

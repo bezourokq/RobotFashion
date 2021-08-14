@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     float inputX;
     float inputY;
     float vel = 1f;
+    public Player player;
+    public GameObject upperG, DownG;
     // Start is called before the first frame update
     void Start()
     {
-
+        player = new Player();
     }
 
     // Update is called once per frame
@@ -29,8 +31,20 @@ public class RobotControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D Collider)
     {
-        Collider.gameObject.SetActive(false);
-        Debug.Log("WTFFFFF");
+        
+        GameObject temp = Collider.gameObject;
+        temp.GetComponent<ItemControl>().resetPosition();
+        temp.GetComponent<BoxCollider2D>().isTrigger = true;
+        Item item = temp.GetComponent<ItemControl>().getItem();
+        if(item.GetCloth().getModel() == 1 || item.GetCloth().getModel() == 2)
+        {
+            upperG.GetComponent<SpriteRenderer>().sprite = item.GetCloth().getFront();
+        }
+        else
+        {
+            DownG.GetComponent<SpriteRenderer>().sprite = item.GetCloth().getFront();
+        }
+        
     }
 
 }

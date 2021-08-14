@@ -2,22 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cloath : MonoBehaviour
+public class Cloth
 {
 
-    public SpriteRenderer render;
-    public int type = 0;
-    public float PriceBuy = 0f;
-    public float PriveSell = 0f;
+    public Sprite front,back;
+    public int Model = 0;
+    public float priceBuy = 0f;
+    public float priceSell = 0f;
     // Start is called before the first frame update
-    void Start()
+
+    public Cloth(Sprite front,Sprite back,int Model, float priceBuy, float priceSell)
     {
-        
+        this.front = front;
+        this.back = back;
+        this.Model = Model;
+        this.priceBuy = priceBuy;
+        this.priceSell = priceSell;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public Sprite getFront()
     {
-        
+        return front;
+    }
+
+    public Sprite getBack()
+    {
+        return back;
+    }
+
+    public int getModel()
+    {
+        return Model;
     }
 }
