@@ -18,7 +18,7 @@ public class ItemControl : MonoBehaviour
 
     public void resetPosition()
     {
-        transform.position = position;
+        transform.position = transform.parent.position;
         transform.rotation = rotation;
     }
 
@@ -41,7 +41,10 @@ public class ItemControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameObject.name.Contains("emp"))
+        {
+            position = transform.position;
+        }
     }
 
     void OnMouseDrag()
@@ -57,14 +60,26 @@ public class ItemControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
-        if (temp.name.Contains("empyt"))
+        
+        if (temp.name.Contains("emp"))
         {
+            temp.GetComponent<BoxCollider2D>().isTrigger = true;
             Debug.Log("entrei");
             InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
             inventory.receiveItem(item, item.GetCloth().getFront(), item.GetCloth().getBack(), icon, item.GetCloth().getModel());
             inventory.updateInventory();
+            temp.GetComponent<BoxCollider2D>().isTrigger = true;
+            temp.GetComponent<ItemControl>().resetPosition();
 
 
+        }else if(temp.name == "Delete")
+        {
+            Debug.Log("Delete");
+            gameObject.name = "empyt";
+            InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
+            inventory.removeFromInventory(item, item.GetCloth().getFront(), item.GetCloth().getBack(), icon, item.GetCloth().getModel());
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            inventory.updateInventory();
         }
     }
 }

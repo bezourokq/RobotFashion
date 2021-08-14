@@ -26,6 +26,7 @@ public class InventoryModel : MonoBehaviour
         Debug.Log(SpritList.Count);
         for (int x = 0; x < IconList.Count; x++)
         {
+            ItemGameObject[x].name = "Full" + x;
             ItemControl itemcontrol = ItemGameObject[x].GetComponent<ItemControl>();
             itemcontrol.setIcon(IconList[x]);
 
@@ -40,6 +41,7 @@ public class InventoryModel : MonoBehaviour
 
     public void receiveItem(Item item,Sprite Front,Sprite Back,Sprite icon,int model)
     {
+
         ItemList.Add(item);
         SpritList.Add(Front);
         SpritList.Add(Back);
@@ -50,6 +52,17 @@ public class InventoryModel : MonoBehaviour
     public void updateInventory()
     {
         makeInventory();
+    }
+
+    public void removeFromInventory(Item item, Sprite Front, Sprite Back, Sprite icon, int model)
+    {
+
+        ItemList.Remove(item);
+        SpritList.Remove(Front);
+        SpritList.Remove(Back);
+        IconList.Remove(icon);
+        types.Remove(model);
+
     }
 
     // Update is called once per frame

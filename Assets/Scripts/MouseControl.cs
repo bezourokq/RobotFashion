@@ -19,9 +19,7 @@ public class MouseControl : MonoBehaviour
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             position.z = 0;
             clickedItem.transform.position = position;
-        }
-        
-        
+        } 
     }
 
     public void HoldItem(GameObject clickedOn)
