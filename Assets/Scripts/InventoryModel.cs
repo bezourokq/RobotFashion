@@ -13,20 +13,17 @@ public class InventoryModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        makeInventory("Full");
+        makeInventory();
     }
 
-    void makeInventory(string name)
+    void makeInventory()
     {
         ItemList = new List<Item>();
         int y = 0;
+        int x = 0;
         Cloth cloth;
-        Debug.Log("-----");
-        Debug.Log(IconList.Count);
-        Debug.Log(SpritList.Count);
-        for (int x = 0; x < IconList.Count; x++)
+        for (x = 0; x < IconList.Count; x++)
         {
-            ItemGameObject[x].name = name + x;
             ItemControl itemcontrol = ItemGameObject[x].GetComponent<ItemControl>();
             itemcontrol.setIcon(IconList[x]);
 
@@ -36,32 +33,42 @@ public class InventoryModel : MonoBehaviour
             itemcontrol.setItem(item);
             y = y + 2;
         }
+        ItemGameObject[x].GetComponent<SpriteRenderer>().sprite = null;
+
 
     }
 
-    public void receiveItem(Item item,Sprite Front,Sprite Back,Sprite icon,int model)
+    public void receiveItem(ItemControl itemControl)
     {
 
-        ItemList.Add(item);
-        SpritList.Add(Front);
-        SpritList.Add(Back);
-        IconList.Add(icon);
-        types.Add(model);
+        ItemList.Add(itemControl.getItem());
+        SpritList.Add(itemControl.getItem().GetCloth().getFront());
+        SpritList.Add(itemControl.getItem().GetCloth().getBack());
+        IconList.Add(itemControl.icon);
+        types.Add(itemControl.getItem().GetCloth().getModel());
     }
 
     public void updateInventory()
     {
-        makeInventory("Brought");
+        if (ItemList.Count < 6)
+        {
+            makeInventory();
+        }
+        else
+        {
+            Debug.Log("Inventario Cheio");
+        }
     }
 
-    public void removeFromInventory(Item item, Sprite Front, Sprite Back, Sprite icon, int model)
+    public void removeFromInventory(ItemControl itemControl)
     {
 
-        ItemList.Remove(item);
-        SpritList.Remove(Front);
-        SpritList.Remove(Back);
-        IconList.Remove(icon);
-        types.Remove(model);
+        ItemList.Remove(itemControl.getItem());
+        SpritList.Remove(itemControl.getItem().GetCloth().getFront());
+        SpritList.Remove(itemControl.getItem().GetCloth().getBack());
+        IconList.Remove(itemControl.icon);
+        types.Remove(itemControl.getItem().GetCloth().getModel());
+        itemControl.name = "empyt";
 
     }
 

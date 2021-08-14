@@ -40,7 +40,8 @@ public class MouseControl : MonoBehaviour
 
     public void ResetItem()
     {
-        clickedItem.GetComponent<BoxCollider2D>().isTrigger = true;
+        if (!clickedItem.name.Contains("emp"))
+            clickedItem.GetComponent<BoxCollider2D>().isTrigger = true;
         clickedItem.GetComponent<ItemControl>().resetPosition();
     }
 }
