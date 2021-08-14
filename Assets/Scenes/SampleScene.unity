@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 173562629}
   - component: {fileID: 173562628}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,6 +556,7 @@ MonoBehaviour:
   IconList:
   - {fileID: 21300000, guid: c820c62898e163f439f3bc78d2388928, type: 3}
   - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
+  types: 
 --- !u!1 &241184432
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ GameObject:
   - component: {fileID: 241184435}
   - component: {fileID: 241184434}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +715,7 @@ GameObject:
   - component: {fileID: 289486704}
   - component: {fileID: 289486705}
   m_Layer: 0
-  m_Name: ItemBox0 (4)
+  m_Name: ItemBox3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -944,7 +945,7 @@ GameObject:
   - component: {fileID: 389972932}
   - component: {fileID: 389972933}
   m_Layer: 0
-  m_Name: ItemBox0 (7)
+  m_Name: ItemBox6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,7 +1194,7 @@ GameObject:
   - component: {fileID: 531924589}
   - component: {fileID: 531924590}
   m_Layer: 0
-  m_Name: ItemBox0 (1)
+  m_Name: ItemBox0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1700,7 @@ GameObject:
   - component: {fileID: 785770488}
   - component: {fileID: 785770487}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,7 +1927,7 @@ GameObject:
   - component: {fileID: 807488997}
   - component: {fileID: 807488998}
   m_Layer: 0
-  m_Name: ItemBox0 (6)
+  m_Name: ItemBox5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,7 +2473,7 @@ GameObject:
   - component: {fileID: 1297132655}
   - component: {fileID: 1297132654}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2703,15 +2704,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307427526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df49b3bd4ec3597499d1be9ce796f1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpritList: []
+  SpritList:
+  - {fileID: 21300000, guid: 78054d9297814c04eb6453ca543ef05a, type: 3}
+  - {fileID: 21300000, guid: d9c9f7abb04b4014e9f7c95f495af762, type: 3}
+  - {fileID: 21300000, guid: 8cdb0cd64d5bcdc4983d9ec52c8165cf, type: 3}
+  - {fileID: 21300000, guid: 041af06b12f19af4a93f60b589fe5247, type: 3}
+  - {fileID: 21300000, guid: 9800f0878b4f1af4e8489cc3a8546e77, type: 3}
+  - {fileID: 21300000, guid: ef3eb9c519a2be54eb5f2fd5951f0a7c, type: 3}
+  - {fileID: 21300000, guid: e10fd9a60488bbd4abb019a5b1800d82, type: 3}
+  - {fileID: 21300000, guid: 21697089bc264a645a08eb7a8dfa7b20, type: 3}
   ItemGameObject:
-  - {fileID: 0}
-  IconList: []
+  - {fileID: 1963432699}
+  - {fileID: 1871627252}
+  - {fileID: 1297132652}
+  - {fileID: 173562626}
+  IconList:
+  - {fileID: 21300000, guid: c820c62898e163f439f3bc78d2388928, type: 3}
+  - {fileID: 21300000, guid: c820c62898e163f439f3bc78d2388928, type: 3}
+  - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
+  - {fileID: 21300000, guid: cd0a359b6c2aa9d448a2b4830e6f156f, type: 3}
+  types: 01000000010000000300000003000000
 --- !u!1 &1320673453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,7 +2953,7 @@ GameObject:
   - component: {fileID: 1356969049}
   - component: {fileID: 1356969050}
   m_Layer: 0
-  m_Name: ItemBox0 (5)
+  m_Name: ItemBox4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3022,7 +3039,7 @@ GameObject:
   - component: {fileID: 1424248295}
   - component: {fileID: 1424248294}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3332,7 +3349,7 @@ GameObject:
   - component: {fileID: 1628919642}
   - component: {fileID: 1628919643}
   m_Layer: 0
-  m_Name: ItemBox0 (3)
+  m_Name: ItemBox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3415,7 +3432,7 @@ GameObject:
   - component: {fileID: 1655808362}
   - component: {fileID: 1655808363}
   m_Layer: 0
-  m_Name: ItemBox0 (2)
+  m_Name: ItemBox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3730,7 +3747,7 @@ GameObject:
   - component: {fileID: 1871627255}
   - component: {fileID: 1871627254}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3979,7 +3996,7 @@ GameObject:
   - component: {fileID: 1963432702}
   - component: {fileID: 1963432701}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4123,7 +4140,7 @@ GameObject:
   - component: {fileID: 1998136545}
   - component: {fileID: 1998136546}
   m_Layer: 0
-  m_Name: ItemBox0 (8)
+  m_Name: ItemBox7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4209,7 +4226,7 @@ GameObject:
   - component: {fileID: 2016540525}
   - component: {fileID: 2016540524}
   m_Layer: 0
-  m_Name: empyt0
+  m_Name: empytN6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

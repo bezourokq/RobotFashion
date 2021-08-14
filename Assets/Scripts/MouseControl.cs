@@ -29,7 +29,6 @@ public class MouseControl : MonoBehaviour
         clickedItem = clickedOn;
         clickedItem.GetComponent<BoxCollider2D>().isTrigger = false;
         clickedItem.GetComponent<BoxCollider2D>().enabled = false;
-        clickedItem.name = "cliked";
         isHolding = true;
     }
 
@@ -37,6 +36,5 @@ public class MouseControl : MonoBehaviour
     {
         clickedItem.GetComponent<BoxCollider2D>().enabled = true;
         isHolding = false;
-        clickedItem.name = "uncliked";
     }
 }

@@ -8,6 +8,7 @@ public class InventoryModel : MonoBehaviour
     public List<Sprite> SpritList;
     public List<GameObject> ItemGameObject;
     public List<Sprite> IconList;
+    public List<int> types;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +16,14 @@ public class InventoryModel : MonoBehaviour
         ItemList = new List<Item>();
         int y = 0;
         Cloth cloth;
-        for (int x = 0; x < 2; x++)
+        for (int x = 0; x < IconList.Count; x++)
         {
             ItemControl itemcontrol = ItemGameObject[x].GetComponent<ItemControl>();
             itemcontrol.setId(x);
             itemcontrol.setIcon(IconList[x]);
             itemcontrol.setId(x);
 
-            cloth = new Cloth(SpritList[y], SpritList[y + 1], y, 1, 1);
+            cloth = new Cloth(SpritList[y], SpritList[y + 1], types[x], 1, 1);
             Item item = new Item(cloth);
             ItemList.Add(item);
             itemcontrol.setItem(item);
