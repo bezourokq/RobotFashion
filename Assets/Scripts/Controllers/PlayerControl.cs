@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     float inputX;
     float inputY;
-    float lastY;
+    string lastKey;
     float vel = 1f;
     public GameObject upperG, downG;
     public Sprite upperSide1, upperSide2, downSide1, downSide2;
@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     {
         showInventory = false;
         inventory.SetActive(false);
-        lastY = 0;
+        lastKey = "w";
     }
 
     // Update is called once per frame
@@ -29,33 +29,42 @@ public class PlayerControl : MonoBehaviour
             showInventory = !showInventory;
             inventory.SetActive(showInventory);
         }
+        else if (Input.GetKeyDown("s"))
+            lastKey = "w";
+        else if (Input.GetKeyDown("w"))
+            lastKey = "s";
 
-        //basic movement for the player
-        inputX = Input.GetAxis("Horizontal");
-        inputY = Input.GetAxis("Vertical");
+        if (transform.position.y >= -3.187027f && transform.position.y <= 1.396544f)
+            inputY = Input.GetAxis("Vertical");
+        else
+            inputY = Input.GetAxis("Vertical")/100f;
+
+        if (transform.position.x >= -3.993459f && transform.position.x <= 5.127916f)
+            inputX = Input.GetAxis("Horizontal");
+        else
+            inputX = Input.GetAxis("Horizontal")/100f;
+
         Vector3 movement = new Vector3(inputX, inputY, 0);
         movement *= Time.deltaTime / vel;
         transform.Translate(movement);
-        ChangeSideCloth(inputY);
-        lastY = inputY;
+        updateCloth();
         gameObject.GetComponent<Animator>().SetFloat("Direction", inputY);
     }
 
-    void ChangeSideCloth(float y)
+    void updateCloth()
     {
-        if (y > 0)
+        if(lastKey == "w")
         {
-            
-           upperG.GetComponent<SpriteRenderer>().sprite = upperSide1;
-           downG.GetComponent<SpriteRenderer>().sprite = downSide1;
+            upperG.GetComponent<SpriteRenderer>().sprite = upperSide1;
+            downG.GetComponent<SpriteRenderer>().sprite = downSide1;
         }
-        else if(y <0 ){
-
+        else
+        {
+            upperG.GetComponent<SpriteRenderer>().sprite = upperSide2;
+            downG.GetComponent<SpriteRenderer>().sprite = downSide2;
         }
-        upperG.GetComponent<SpriteRenderer>().sprite = upperSide2;
-        downG.GetComponent<SpriteRenderer>().sprite = downSide2;
     }
-    
+   
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
@@ -79,7 +88,7 @@ public class PlayerControl : MonoBehaviour
                 downSide1 = item.getCloth().getFront();
                 downSide2 = item.getCloth().getBack();
             }
-            ChangeSideCloth(lastY);
+            updateCloth();
         }       
     }
 

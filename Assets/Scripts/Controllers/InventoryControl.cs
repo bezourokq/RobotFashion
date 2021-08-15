@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryModel : MonoBehaviour
+public class InventoryControl : MonoBehaviour
 {
     
     public List<GameObject> ItemGameObject;

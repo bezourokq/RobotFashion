@@ -67,12 +67,13 @@ public class ItemControl : MonoBehaviour
         Debug.Log(temp.name);
         if (temp.name.Contains("emp") && gameObject.name.Contains("Full"))
         {
-            InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
+            InventoryControl inventory = GameObject.Find("inventory").GetComponent<InventoryControl>();
             inventory.receiveItem(gameObject.GetComponent<ItemControl>().getItem());
         }
         else if(temp.name == "Delete" && gameObject.name.Contains("bought"))
         {
-            InventoryModel inventory = GameObject.Find("inventory").GetComponent<InventoryModel>();
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            InventoryControl inventory = GameObject.Find("inventory").GetComponent<InventoryControl>();
             inventory.removeFromInventory(gameObject.GetComponent<ItemControl>().getItem());
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             temp.GetComponent<BoxCollider2D>().isTrigger = false;
