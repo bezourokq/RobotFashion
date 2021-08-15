@@ -37,7 +37,16 @@ public class PlayerControl : MonoBehaviour
             lastKey = "w";
         else if (Input.GetKeyDown("w"))
             lastKey = "s";
-        
+        else if (Input.GetKeyDown("r"))
+        {
+            upperG.GetComponent<SpriteRenderer>().sprite = null;
+            downG.GetComponent<SpriteRenderer>().sprite = null;
+            upperSide1 = null;
+            upperSide2 = null;
+            downSide1 = null;
+            downSide2 = null;
+        }
+
 
         inputY = Input.GetAxis("Vertical");
         inputX = Input.GetAxis("Horizontal");
