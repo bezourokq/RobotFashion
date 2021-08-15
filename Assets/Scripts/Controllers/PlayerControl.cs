@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerControl : MonoBehaviour
 {
     float inputX;
@@ -16,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     int money = 100;
     public Text text;
     
-    // Start is called before the first frame update
+
     void Start()
     {
         showInventory = false;
@@ -24,7 +25,6 @@ public class PlayerControl : MonoBehaviour
         lastKey = "w";
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -58,6 +58,7 @@ public class PlayerControl : MonoBehaviour
         gameObject.GetComponent<Animator>().SetFloat("Direction", inputY);
     }
 
+    //Updates the clothes using the direction the player is facing, do not works on directional keys
     void updateCloth()
     {
         if(lastKey == "w")

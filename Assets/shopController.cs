@@ -25,17 +25,21 @@ public class shopController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D Collider)
     {
-        GameObject temp = Collider.gameObject;
-        Debug.Log("entrou");
-        playerOn = true;
+        if(Collider.gameObject.name == "Player")
+        {
+            GameObject temp = Collider.gameObject;
+            playerOn = true;
+        }
+        
     }
     private void OnCollisionExit2D(Collision2D Collider)
     {
-        GameObject temp = Collider.gameObject;
-        Debug.Log("saiu");
-        playerOn = false;
-        showGoods = false;
-        store.SetActive(showGoods);
-
+        if (Collider.gameObject.name == "Player")
+        {
+            GameObject temp = Collider.gameObject;
+            playerOn = false;
+            showGoods = false;
+            store.SetActive(showGoods);
+        }
     }
 }
