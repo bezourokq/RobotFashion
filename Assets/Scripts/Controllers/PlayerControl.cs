@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && !Input.GetMouseButton(0))
         {
             showInventory = !showInventory;
             inventory.SetActive(showInventory);
