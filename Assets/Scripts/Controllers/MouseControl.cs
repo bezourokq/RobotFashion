@@ -22,6 +22,8 @@ public class MouseControl : MonoBehaviour
         } 
     }
 
+
+    //sets the boolean for dragging the item with the cursor
     public void HoldItem(GameObject clickedOn)
     {
         clickedItem = clickedOn;
@@ -30,6 +32,7 @@ public class MouseControl : MonoBehaviour
         isHolding = true;
     }
 
+    //drops the item and gives it a boxcollider2d(not trigger) for a delay of 0.1f
     public void DropItem()
     {
         clickedItem.GetComponent<BoxCollider2D>().enabled = true;
@@ -38,6 +41,7 @@ public class MouseControl : MonoBehaviour
         Invoke("ResetItem", delay);
     }
 
+    //resets the original position of a item on the screen
     public void ResetItem()
     {
         if (!clickedItem.name.Contains("emp"))

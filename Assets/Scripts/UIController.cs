@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour
     {
         
     }
-
+    //just to exit
     public void exit()
     {
         Application.Quit();

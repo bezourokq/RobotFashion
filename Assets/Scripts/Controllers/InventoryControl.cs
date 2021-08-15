@@ -11,8 +11,9 @@ public class InventoryControl : MonoBehaviour
     public int size;
     int totalItem;
     public string name;
-    
 
+
+    //run the list of items from the factory and build the shop
     void Start()
     {
         CopyItemGameObject = ItemGameObject;
@@ -28,6 +29,7 @@ public class InventoryControl : MonoBehaviour
             makeInventory();
     }
 
+    //run the list of items from the factory and build the inventory
     void makeInventory()
     {
         int x = 0;
@@ -44,6 +46,7 @@ public class InventoryControl : MonoBehaviour
         }
     }
 
+    //adds a nem item to the factory list
     public void receiveItem(Item item)
     {
         totalItem = totalItem + 1;
@@ -54,16 +57,17 @@ public class InventoryControl : MonoBehaviour
         }
         else
         {
-            Debug.Log("Inventorio Cheio");
+            Debug.Log("Inventory is full");
         }
     }
 
+    //this i dont think is doing anything, i tried solving a bug on the list and the bug is gonne so i let the code be
     public void cleanInventory()
     {
         ItemGameObject = CopyItemGameObject;
     }
 
-
+    //remove a item from the factory item list
     public void removeFromInventory(Item item)
     {
         Debug.Log("WTF");

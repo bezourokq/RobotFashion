@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ItemFactory : MonoBehaviour
 {
     public List<Item> ItemList;
@@ -11,10 +12,13 @@ public class ItemFactory : MonoBehaviour
     int x = 0, y = 0;
     public int max;
 
+    //creat a new empyt item list
     public void init()
     {
         ItemList = new List<Item>();
     }
+
+    //ad a new item to the list
     public void AddToList(Item item)
     {
         x++;
@@ -22,6 +26,7 @@ public class ItemFactory : MonoBehaviour
         ItemList.Add(item);
     }
 
+    //remove a item from the list
     public void RemoveFromList(Item item)
     {
         ItemList.Remove(item);
@@ -29,6 +34,7 @@ public class ItemFactory : MonoBehaviour
         y = y - 2;
     }
 
+    //makes brand new item and adds to the list
     public void MakeItem()
     {
         Cloth cloth = new Cloth(SpritList[y], SpritList[y + 1], types[x], 1, 1);
@@ -36,11 +42,13 @@ public class ItemFactory : MonoBehaviour
         AddToList(item);
     }
 
+    //get the max value of items on a list
     public int getMax()
     {
         return max;
     }
 
+    //return the list
     public List<Item> GetItemList()
     {
         return ItemList;

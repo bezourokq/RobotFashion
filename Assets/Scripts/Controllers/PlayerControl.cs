@@ -8,14 +8,14 @@ public class PlayerControl : MonoBehaviour
 {
     float inputX;
     float inputY;
-    string lastKey;
+    string lastKey;//last key pressed, w or s
     float vel = 1f;
     public GameObject upperG, downG;
     public Sprite upperSide1, upperSide2, downSide1, downSide2;
     public GameObject inventory;
     bool showInventory;
-    int money = 100;
-    public Text text;
+    int money = 100;//start money
+    public Text text;//money text
     
 
     void Start()
@@ -72,7 +72,8 @@ public class PlayerControl : MonoBehaviour
             downG.GetComponent<SpriteRenderer>().sprite = downSide2;
         }
     }
-   
+
+    //detect the clothes on top of the player on the drop and drag mechanic, if the item has the name bought the player can wear
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
@@ -100,6 +101,7 @@ public class PlayerControl : MonoBehaviour
         }       
     }
 
+    //control the money that the player has
     public void setMoney(int transaction)
     {
         money = money + transaction;

@@ -10,12 +10,14 @@ public class ItemControl : MonoBehaviour
     Vector3 position;
     Quaternion rotation;
     // Start is called before the first frame update
+
+    //gets the initial position of the object
     void Start()
     {
         position = transform.position;
         rotation = transform.rotation;
     }
-
+    //resets the object position
     public void resetPosition()
     {
         transform.position = transform.parent.position;
@@ -51,16 +53,20 @@ public class ItemControl : MonoBehaviour
         }
     }
 
+    //Mouse hold/drag
     void OnMouseDrag()
     {
         control.HoldItem(gameObject);
     }
 
+    //Mouse up
     void OnMouseUp()
     {
         control.DropItem();
     }
 
+
+    //Drag and drop main code, here the item that is bein drag gets to what end is his purpose
     private void OnCollisionEnter2D(Collision2D Collider)
     {
         GameObject temp = Collider.gameObject;
@@ -83,6 +89,8 @@ public class ItemControl : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerControl>().setMoney(10);
         }
     }
+
+    //helps making the list work, if an item box is empty it is not a trigger and has no sprite
     private void FixedUpdate()
     {
         if (gameObject.name.Contains("emp"))
