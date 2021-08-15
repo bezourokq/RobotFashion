@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerControl : MonoBehaviour
     public Sprite upperSide1, upperSide2, downSide1, downSide2;
     public GameObject inventory;
     bool showInventory;
+    int money = 100;
+    public Text text;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +37,10 @@ public class PlayerControl : MonoBehaviour
             lastKey = "w";
         else if (Input.GetKeyDown("w"))
             lastKey = "s";
+        
 
-        if (transform.position.y >= -3.187027f && transform.position.y <= 1.396544f)
-            inputY = Input.GetAxis("Vertical");
-        else
-            inputY = Input.GetAxis("Vertical")/100f;
-
-        if (transform.position.x >= -3.993459f && transform.position.x <= 5.127916f)
-            inputX = Input.GetAxis("Horizontal");
-        else
-            inputX = Input.GetAxis("Horizontal")/100f;
+        inputY = Input.GetAxis("Vertical");
+        inputX = Input.GetAxis("Horizontal");
 
         Vector3 movement = new Vector3(inputX, inputY, 0);
         movement *= Time.deltaTime / vel;
@@ -90,6 +88,12 @@ public class PlayerControl : MonoBehaviour
             }
             updateCloth();
         }       
+    }
+
+    public void setMoney(int transaction)
+    {
+        money = money + transaction;
+        text.text = money.ToString();
     }
 
 }

@@ -67,16 +67,20 @@ public class ItemControl : MonoBehaviour
         Debug.Log(temp.name);
         if (temp.name.Contains("emp") && gameObject.name.Contains("Full"))
         {
+
             InventoryControl inventory = GameObject.Find("inventory").GetComponent<InventoryControl>();
             inventory.receiveItem(gameObject.GetComponent<ItemControl>().getItem());
+            GameObject.Find("Player").GetComponent<PlayerControl>().setMoney(-20);
         }
         else if(temp.name == "Delete" && gameObject.name.Contains("bought"))
         {
+
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             InventoryControl inventory = GameObject.Find("inventory").GetComponent<InventoryControl>();
             inventory.removeFromInventory(gameObject.GetComponent<ItemControl>().getItem());
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             temp.GetComponent<BoxCollider2D>().isTrigger = false;
+            GameObject.Find("Player").GetComponent<PlayerControl>().setMoney(10);
         }
     }
 }
